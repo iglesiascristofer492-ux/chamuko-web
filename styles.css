@@ -579,15 +579,27 @@ footer{
 /* ---------------------------------------------------------
    PORTADA (imagen de fondo del hero principal)
 --------------------------------------------------------- */
-.hero.hero-cover{
-  background-image:
-    linear-gradient(180deg, rgba(29,33,25,0.55) 0%, rgba(29,33,25,0.88) 78%, var(--ink) 100%),
-    linear-gradient(100deg, rgba(47,82,51,0.55), rgba(239,179,41,0.22) 55%, transparent 78%),
-    url('portada.png');
-  background-size:cover;
-  background-position:center 22%;
-}
+.hero.hero-cover{ background:var(--ink); }
 .hero.hero-cover::before{ display:none; }
+.hero-media{
+  position:absolute; inset:0;
+  z-index:0;
+  overflow:hidden;
+}
+.hero-media img{
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position:center 42%;
+  filter:brightness(1.32) contrast(1.02);
+}
+.hero-scrim{
+  position:absolute; inset:0;
+  z-index:1;
+  background:
+    linear-gradient(180deg, rgba(29,33,25,0.2) 0%, rgba(29,33,25,0.42) 55%, var(--ink) 100%),
+    linear-gradient(100deg, rgba(47,82,51,0.32), rgba(239,179,41,0.1) 45%, transparent 68%);
+}
+.hero.hero-cover .hero-inner{ position:relative; z-index:2; }
 
 /* ---------------------------------------------------------
    BADGE "MÁS SOLICITADO"
