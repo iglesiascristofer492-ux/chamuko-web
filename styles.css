@@ -6,11 +6,11 @@
 
 :root{
   /* --- Color --- */
-  --white:        #FAF9F3;
-  --cream:        #F1EFE3;
-  --gray-300:     #CBCFC3;
-  --gray-500:     #7C8377;
-  --gray-700:     #4A4F46;
+  --white:        #F0EFE9;
+  --cream:        #E4E2D8;
+  --gray-300:     #C2C4B8;
+  --gray-500:     #74796F;
+  --gray-700:     #45493F;
   --ink:          #1D2119;
 
   --green-900:    #1F3821;
@@ -45,7 +45,7 @@ html{ scroll-behavior:smooth; }
 
 body{
   margin:0;
-  background:var(--white);
+  background:#EAE8DF;
   color:var(--ink);
   font-family:var(--f-body);
   font-size:16px;
@@ -293,6 +293,16 @@ section.tight{ padding:64px 0; }
 .icon-imaginity span:nth-child(3){ background:#FBD873; }
 .icon-imaginity span:nth-child(4){ background:#86AE6E; }
 
+.icon-tebex span:nth-child(1){ background:#EFB329; }
+.icon-tebex span:nth-child(2){ background:#7C8377; }
+.icon-tebex span:nth-child(3){ background:#4A4F46; }
+.icon-tebex span:nth-child(4){ background:#FBD873; }
+
+.icon-plugins span:nth-child(1){ background:#47793F; }
+.icon-plugins span:nth-child(2){ background:#4A4F46; }
+.icon-plugins span:nth-child(3){ background:#86AE6E; }
+.icon-plugins span:nth-child(4){ background:#CBCFC3; }
+
 .server-meta{ flex:1; min-width:0; }
 .server-name{
   font-family:var(--f-display); font-weight:700; font-size:18px;
@@ -453,7 +463,7 @@ section.tight{ padding:64px 0; }
 .contact-panel h2{ color:var(--white); font-size:clamp(1.6rem,3vw,2.1rem); max-width:460px; }
 .contact-panel p{ color:rgba(250,249,243,0.72); margin-top:12px; max-width:420px; font-size:15px; }
 .contact-links{ display:flex; flex-direction:column; gap:10px; font-family:var(--f-mono); font-size:14px; }
-.contact-links a{ color:var(--yellow-300); }
+.contact-links a, .contact-links span{ color:var(--yellow-300); font-weight:600; }
 .contact-links a:hover{ text-decoration:underline; }
 
 footer{
@@ -561,6 +571,81 @@ footer{
   .contact-panel{ padding:40px 28px; }
 }
 
+/* ---------------------------------------------------------
+   PORTADA (imagen de fondo del hero principal)
+--------------------------------------------------------- */
+.hero.hero-cover{
+  background-image:
+    linear-gradient(180deg, rgba(29,33,25,0.55) 0%, rgba(29,33,25,0.88) 78%, var(--ink) 100%),
+    linear-gradient(100deg, rgba(47,82,51,0.55), rgba(239,179,41,0.22) 55%, transparent 78%),
+    url('assets/portada.png');
+  background-size:cover;
+  background-position:center 22%;
+}
+.hero.hero-cover::before{ display:none; }
+
+/* ---------------------------------------------------------
+   BADGE "MÁS SOLICITADO"
+--------------------------------------------------------- */
+.plan-badge{
+  position:absolute;
+  top:-11px; left:26px;
+  background:var(--yellow-500);
+  color:var(--ink);
+  font-family:var(--f-mono);
+  font-size:11px; font-weight:700;
+  text-transform:uppercase; letter-spacing:0.05em;
+  padding:5px 10px;
+  border-radius:20px;
+}
+.plan-card{ position:relative; }
+
+/* ---------------------------------------------------------
+   AVISO — información no disponible
+--------------------------------------------------------- */
+.notice-block{
+  padding:90px 24px 110px;
+  text-align:center;
+}
+.notice-block p.notice{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:clamp(1.35rem, 3.6vw, 2rem);
+  color:#B3261E;
+  line-height:1.4;
+  max-width:720px;
+  margin:0 auto;
+}
+
+/* ---------------------------------------------------------
+   PRÓXIMAMENTE (páginas de tebex / plugins)
+--------------------------------------------------------- */
+.soon-list{
+  display:flex; flex-direction:column;
+  border:1px solid var(--gray-300);
+  border-radius:14px;
+  overflow:hidden;
+  background:var(--white);
+}
+.soon-item{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px;
+  padding:22px 26px;
+  border-bottom:1px solid var(--gray-300);
+}
+.soon-item:last-child{ border-bottom:none; }
+.soon-item h3{ font-size:16.5px; font-family:var(--f-display); }
+.soon-item p{ font-size:13.5px; color:var(--gray-700); margin-top:5px; }
+.badge-soon{
+  flex:none;
+  font-family:var(--f-mono); font-size:11.5px; font-weight:700;
+  text-transform:uppercase; letter-spacing:0.05em;
+  padding:6px 12px; border-radius:20px;
+  background:var(--cream);
+  border:1px solid var(--gray-300);
+  color:var(--gray-700);
+}
+
 @media (max-width: 720px){
   .nav-links{
     position:fixed; inset:64px 0 0 0;
@@ -579,4 +664,5 @@ footer{
   .server-status{ order:3; width:100%; padding-left:72px; }
   .ping-bars{ display:none; }
   .gallery{ grid-template-columns:1fr; }
+  .soon-item{ flex-wrap:wrap; }
 }
